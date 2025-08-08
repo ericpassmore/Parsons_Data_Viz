@@ -40,7 +40,12 @@ class HtmlTableExtractor:
         """Downloads HTML content from the URL."""
         try:
             print(f"Downloading HTML from {self.url}...")
-            response = requests.get(self.url)
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " \
+                  "AppleWebKit/537.36 (KHTML, like Gecko) " \
+                  "Chrome/115.0.0.0 Safari/537.36"
+            }
+            response = requests.get(self.url, headers=headers)
             response.raise_for_status()  # Raise an HTTPError for bad responses (4xx or 5xx)
             print("Download successful.")
             return response.text

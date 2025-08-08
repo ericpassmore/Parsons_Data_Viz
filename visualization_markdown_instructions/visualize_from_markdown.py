@@ -97,11 +97,9 @@ if __name__ == '__main__':
     # only generate ouput data file when needed, skip if already present
     output_data_file = os.path.join(output_dir, data_csv_file)
     if not os.path.exists(output_data_file) or os.path.getsize(output_data_file) == 0:
-        # skip_first_rows 1 ; table has header row 
+        #  table has header row 
         extractor = HtmlTableExtractor(url=data_url,
-                                   output_filename=os.path.join(output_dir, data_csv_file),
-                                   skip_first_rows=1,
-                                   first_row_is_header=True)
+                                   output_filename=os.path.join(output_dir, data_csv_file))
     print("\n--- Process converting HTML table to CSV complete ---")
 
     print("--- Loading Markdown Instructions and Data ---")
